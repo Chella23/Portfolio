@@ -2,13 +2,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20">
       <div className="container mx-auto px-4 text-center">
@@ -41,19 +37,23 @@ const HeroSection = () => {
               variant="outline" 
               size="lg" 
               className="text-lg px-8"
-              onClick={() => scrollToSection('contact')}
+              asChild
             >
-              Get In Touch
+              <Link to="/contact">
+                Get In Touch
+              </Link>
             </Button>
           </div>
           
           <div className="mt-12">
             <Button 
               variant="ghost" 
-              onClick={() => scrollToSection('about')}
               className="animate-bounce"
+              asChild
             >
-              <ArrowDown className="h-6 w-6" />
+              <Link to="/about">
+                <ArrowDown className="h-6 w-6" />
+              </Link>
             </Button>
           </div>
         </div>
