@@ -18,18 +18,23 @@ const Header = () => {
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
+  // Hide the name when on home page
+  const isHomePage = location.pathname === '/';
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link 
-          to="/" 
-          className="text-xl sm:text-2xl font-bold hover:text-primary transition-all duration-300 hover:scale-105 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
-        >
-          Chellappan G
-        </Link>
+        {!isHomePage && (
+          <Link 
+            to="/" 
+            className="text-xl sm:text-2xl font-bold hover:text-primary transition-all duration-300 hover:scale-105 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
+          >
+            Chellappan G
+          </Link>
+        )}
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className={`hidden md:flex space-x-8 ${isHomePage ? 'mx-auto' : ''}`}>
           {navItems.map(({ path, label, icon: Icon }) => (
             <Link
               key={path}

@@ -24,12 +24,16 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Profile section with enhanced design */}
+          {/* Profile section with your uploaded image */}
           <div className="mb-12 animate-fade-in">
             <div className="relative inline-block mb-8">
-              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto rounded-full bg-gradient-to-r from-primary via-primary/80 to-primary/60 flex items-center justify-center text-6xl sm:text-7xl md:text-8xl font-bold text-primary-foreground shadow-2xl hover:shadow-primary/25 transition-all duration-500 hover:scale-105 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                <span className="relative z-10">CG</span>
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl hover:shadow-primary/25 transition-all duration-500 hover:scale-105 relative ring-4 ring-primary/20 hover:ring-primary/40">
+                <img 
+                  src="/lovable-uploads/23adfec1-7009-4533-b904-30f3d1e8942d.png" 
+                  alt="Chellappan G - Full Stack Developer" 
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
               </div>
               <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-background animate-pulse"></div>
             </div>
@@ -95,7 +99,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Developer-themed image */}
+      {/* Developer-themed gradient overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-muted/10 to-transparent pointer-events-none"></div>
     </section>
   );
