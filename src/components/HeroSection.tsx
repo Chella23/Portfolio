@@ -1,43 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, ArrowDown, Code, Terminal, GitBranch } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import LoadingSpinner from './LoadingSpinner';
-import SkeletonLoader from './SkeletonLoader';
 
 const HeroSection = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [contentLoaded, setContentLoaded] = useState(false);
-
-  useEffect(() => {
-    // Simulate content loading
-    const timer = setTimeout(() => {
-      setContentLoaded(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
-
-  if (!contentLoaded) {
-    return (
-      <section className="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-background via-background to-muted/20">
-        <div className="container mx-auto px-4 text-center">
-          <SkeletonLoader type="avatar" className="mb-8" />
-          <SkeletonLoader type="text" lines={2} className="max-w-lg mx-auto mb-6" />
-          <div className="flex justify-center gap-4">
-            <div className="animate-pulse bg-muted rounded-full h-12 w-32"></div>
-            <div className="animate-pulse bg-muted rounded-full h-12 w-32"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-background via-background to-muted/20 relative overflow-hidden">
       {/* Animated background elements */}
@@ -57,20 +24,14 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Profile section with loading animation */}
+          {/* Profile section with your uploaded image */}
           <div className="mb-12 animate-fade-in">
             <div className="relative inline-block mb-8">
               <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl hover:shadow-primary/25 transition-all duration-500 hover:scale-105 relative ring-4 ring-primary/20 hover:ring-primary/40">
-                {!imageLoaded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-muted animate-pulse">
-                    <LoadingSpinner size="lg" />
-                  </div>
-                )}
                 <img 
                   src="/lovable-uploads/23adfec1-7009-4533-b904-30f3d1e8942d.png" 
                   alt="Chellappan G - Full Stack Developer" 
-                  className={`w-full h-full object-cover object-center transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onLoad={handleImageLoad}
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
               </div>
@@ -103,10 +64,10 @@ const HeroSection = () => {
             </p>
           </div>
           
-          {/* Enhanced action buttons with loading states */}
+          {/* Enhanced action buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in delay-500">
-            <Button size="lg" className="text-base sm:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 group">
-              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+            <Button size="lg" className="text-base sm:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+              <Download className="mr-2 h-5 w-5 animate-bounce" />
               Download Resume
             </Button>
             <Button 
@@ -133,7 +94,7 @@ const HeroSection = () => {
                 <ArrowDown className="h-6 w-6" />
               </Link>
             </Button>
-            <p className="text-sm text-muted-foreground mt-2 animate-pulse">Explore My Journey</p>
+            <p className="text-sm text-muted-foreground mt-2">Explore My Journey</p>
           </div>
         </div>
       </div>
