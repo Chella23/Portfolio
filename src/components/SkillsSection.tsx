@@ -2,9 +2,56 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Wrench, Shield, Database, Zap, Globe } from 'lucide-react';
+import { Code, Wrench, Shield, Database, Zap, Globe, Terminal, FileCode, Layers, Server, Cloud, Smartphone, MonitorSpeaker, GitBranch, Settings, Lock, Network, Cpu, Brain } from 'lucide-react';
 
 const SkillsSection = () => {
+  // Icon mapping for different skills
+  const getSkillIcon = (skill: string) => {
+    const iconMap: { [key: string]: JSX.Element } = {
+      // Languages
+      "Python": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-5 h-5" />,
+      "Java": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-5 h-5" />,
+      "JavaScript": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-5 h-5" />,
+      "C": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" className="w-5 h-5" />,
+      "HTML": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" className="w-5 h-5" />,
+      "CSS": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" className="w-5 h-5" />,
+      "C#": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" className="w-5 h-5" />,
+      ".NET": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET" className="w-5 h-5" />,
+      
+      // Frameworks
+      "Flask": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" className="w-5 h-5" />,
+      "React": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-5 h-5" />,
+      "Node.js": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-5 h-5" />,
+      "Bootstrap": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" className="w-5 h-5" />,
+      "MERN Stack": <Layers className="w-5 h-5 text-green-600" />,
+      
+      // Tools & Databases
+      "VS Code": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-5 h-5" />,
+      "NetBeans": <Terminal className="w-5 h-5 text-orange-600" />,
+      "Git": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-5 h-5" />,
+      "Android Studio": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android Studio" className="w-5 h-5" />,
+      "MySQL": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="w-5 h-5" />,
+      "MongoDB": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-5 h-5" />,
+      
+      // Domains
+      "Web Development": <Globe className="w-5 h-5 text-blue-600" />,
+      "Cybersecurity": <Shield className="w-5 h-5 text-red-600" />,
+      "Networking": <Network className="w-5 h-5 text-purple-600" />,
+      "Operating Systems": <MonitorSpeaker className="w-5 h-5 text-gray-600" />,
+      "DSA": <Brain className="w-5 h-5 text-indigo-600" />,
+      
+      // Tech Stack
+      "TypeScript": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-5 h-5" />,
+      "Tailwind": <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind" className="w-5 h-5" />,
+      "Penetration Testing": <Lock className="w-5 h-5 text-red-600" />,
+      "Network Security": <Shield className="w-5 h-5 text-orange-600" />,
+      "Optimization": <Zap className="w-5 h-5 text-yellow-600" />,
+      "Scalability": <Server className="w-5 h-5 text-green-600" />
+    };
+    
+    return iconMap[skill] || <Code className="w-5 h-5 text-gray-500" />;
+  };
+
   const skillCategories = [
     {
       title: "Languages",
@@ -73,8 +120,13 @@ const SkillsSection = () => {
                   </div>
                 </div>
                 <h4 className="font-semibold text-sm sm:text-base mb-2">{tech.name}</h4>
-                <div className="text-xs text-muted-foreground">
-                  {tech.tools.join(" • ")}
+                <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-2">
+                  {tech.tools.map((tool, toolIndex) => (
+                    <div key={toolIndex} className="flex items-center gap-1">
+                      {getSkillIcon(tool)}
+                      <span>{tool}</span>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -101,8 +153,9 @@ const SkillsSection = () => {
                     <Badge 
                       key={skillIndex} 
                       variant="secondary" 
-                      className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default hover:scale-105 bg-muted/50 backdrop-blur-sm"
+                      className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default hover:scale-105 bg-muted/50 backdrop-blur-sm flex items-center gap-2"
                     >
+                      {getSkillIcon(skill)}
                       {skill}
                     </Badge>
                   ))}
