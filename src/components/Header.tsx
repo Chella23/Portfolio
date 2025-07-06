@@ -33,10 +33,10 @@ const Header = () => {
               to="/" 
               className="group flex items-center space-x-3"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-code-function to-code-keyword flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <span className="text-background font-bold text-lg">C</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent group-hover:from-primary/80 group-hover:to-primary transition-all duration-300">
+              <span className="text-xl font-bold bg-gradient-to-r from-code-function via-code-keyword to-code-string bg-clip-text text-transparent group-hover:from-code-keyword group-hover:to-code-function transition-all duration-300">
                 Chellappan G
               </span>
             </Link>
@@ -51,8 +51,8 @@ const Header = () => {
                   to={path}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 relative group ${
                     location.pathname === path 
-                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
-                      : 'hover:bg-background/60 hover:text-primary hover:shadow-md'
+                      ? 'bg-code-function text-background shadow-lg shadow-code-function/25' 
+                      : 'hover:bg-background/60 hover:text-code-keyword hover:shadow-md text-code-comment'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -60,7 +60,7 @@ const Header = () => {
                   
                   {/* Animated dot indicator */}
                   {location.pathname === path && (
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-code-string rounded-full animate-pulse"></div>
                   )}
                 </Link>
               ))}
@@ -75,11 +75,11 @@ const Header = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-primary/10 hover:border-primary/30 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-code-function/10 hover:border-code-function/30 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 {theme === 'light' ? 
-                  <Moon className="h-4 w-4 text-primary" /> : 
-                  <Sun className="h-4 w-4 text-yellow-500" />
+                  <Moon className="h-4 w-4 text-code-function" /> : 
+                  <Sun className="h-4 w-4 text-code-variable" />
                 }
               </Button>
             </div>
@@ -88,10 +88,10 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="icon" 
-              className="md:hidden w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-primary/10 hover:border-primary/30 hover:scale-110 transition-all duration-300 shadow-lg"
+              className="md:hidden w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-code-function/10 hover:border-code-function/30 hover:scale-110 transition-all duration-300 shadow-lg"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-4 w-4 text-primary" /> : <Menu className="h-4 w-4 text-primary" />}
+              {isMenuOpen ? <X className="h-4 w-4 text-code-function" /> : <Menu className="h-4 w-4 text-code-function" />}
             </Button>
           </div>
         </div>
@@ -109,21 +109,21 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
                     location.pathname === path 
-                      ? 'bg-primary/10 text-primary border border-primary/20 shadow-lg' 
-                      : 'hover:bg-muted/50 hover:text-primary border border-transparent hover:border-border/50'
+                      ? 'bg-code-function/10 text-code-function border border-code-function/20 shadow-lg' 
+                      : 'hover:bg-muted/50 hover:text-code-keyword border border-transparent hover:border-border/50 text-code-comment'
                   }`}
                 >
                   <div className={`p-2 rounded-lg transition-all duration-300 ${
                     location.pathname === path 
-                      ? 'bg-primary/20' 
-                      : 'bg-muted/50 group-hover:bg-primary/10'
+                      ? 'bg-code-function/20' 
+                      : 'bg-muted/50 group-hover:bg-code-function/10'
                   }`}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <span className="font-medium">{label}</span>
                   
                   {location.pathname === path && (
-                    <div className="ml-auto w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    <div className="ml-auto w-2 h-2 bg-code-function rounded-full animate-pulse"></div>
                   )}
                 </Link>
               ))}

@@ -57,29 +57,29 @@ const SkillsSection = () => {
       title: "Languages",
       icon: <Code className="h-6 w-6" />,
       skills: ["Python", "Java", "JavaScript", "C", "HTML", "CSS", "C#", ".NET"],
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-500/10"
+      color: "from-code-keyword to-code-function",
+      bgColor: "bg-code-keyword/10"
     },
     {
       title: "Frameworks",
       icon: <Wrench className="h-6 w-6" />,
       skills: ["Flask", "MERN Stack", "Bootstrap", "React", "Node.js"],
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-500/10"
+      color: "from-code-string to-code-variable",
+      bgColor: "bg-code-string/10"
     },
     {
       title: "Tools & Databases",
       icon: <Database className="h-6 w-6" />,
       skills: ["VS Code", "NetBeans", "Git", "Android Studio", "MySQL", "MongoDB"],
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-500/10"
+      color: "from-code-function to-code-operator",
+      bgColor: "bg-code-function/10"
     },
     {
       title: "Domains",
       icon: <Shield className="h-6 w-6" />,
       skills: ["Web Development", "Cybersecurity", "Networking", "Operating Systems", "DSA"],
-      color: "from-orange-500 to-orange-600",
-      bgColor: "bg-orange-500/10"
+      color: "from-code-variable to-code-number",
+      bgColor: "bg-code-variable/10"
     }
   ];
 
@@ -100,12 +100,12 @@ const SkillsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Skills & Expertise
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-code-function to-code-keyword bg-clip-text text-transparent">
+            <span className="text-code-comment">/*</span> <span className="text-code-keyword">class</span> <span className="text-code-function">Skills</span> <span className="text-code-comment">*/</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-4"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
-            Comprehensive technical skills spanning multiple domains and technologies
+          <div className="w-24 h-1 bg-gradient-to-r from-code-function to-code-keyword mx-auto rounded-full mb-4"></div>
+          <p className="text-code-comment max-w-2xl mx-auto text-base sm:text-lg">
+            <span className="text-code-comment">// Comprehensive technical skills spanning multiple domains</span>
           </p>
         </div>
 
@@ -115,16 +115,16 @@ const SkillsSection = () => {
             <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-0" style={{animationDelay: `${index * 150}ms`}}>
               <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-center mb-3">
-                  <div className="p-2 sm:p-3 bg-primary/10 rounded-full">
+                  <div className="p-2 sm:p-3 bg-code-function/10 rounded-full">
                     {tech.icon}
                   </div>
                 </div>
-                <h4 className="font-semibold text-sm sm:text-base mb-2">{tech.name}</h4>
-                <div className="text-xs text-muted-foreground flex flex-wrap justify-center gap-2">
+                <h4 className="font-semibold text-sm sm:text-base mb-2 text-code-keyword">{tech.name}</h4>
+                <div className="text-xs text-code-comment flex flex-wrap justify-center gap-2">
                   {tech.tools.map((tool, toolIndex) => (
                     <div key={toolIndex} className="flex items-center gap-1">
                       {getSkillIcon(tool)}
-                      <span>{tool}</span>
+                      <span className="text-code-variable">{tool}</span>
                     </div>
                   ))}
                 </div>
@@ -139,11 +139,11 @@ const SkillsSection = () => {
             <Card key={index} className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in group bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-0" style={{animationDelay: `${(index + 4) * 200}ms`}}>
               <CardHeader className="text-center pb-4">
                 <div className={`mx-auto p-4 ${category.bgColor} rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <div className="text-primary">
+                  <div className="text-code-function">
                     {category.icon}
                   </div>
                 </div>
-                <CardTitle className="text-xl sm:text-2xl group-hover:text-primary transition-colors">
+                <CardTitle className="text-xl sm:text-2xl group-hover:text-code-keyword transition-colors text-code-function">
                   {category.title}
                 </CardTitle>
               </CardHeader>
@@ -153,7 +153,7 @@ const SkillsSection = () => {
                     <Badge 
                       key={skillIndex} 
                       variant="secondary" 
-                      className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default hover:scale-105 bg-muted/50 backdrop-blur-sm flex items-center gap-2"
+                      className="text-xs hover:bg-code-keyword hover:text-background transition-all duration-300 cursor-default hover:scale-105 bg-muted/50 backdrop-blur-sm flex items-center gap-2 text-code-variable"
                     >
                       {getSkillIcon(skill)}
                       {skill}
@@ -175,8 +175,8 @@ const SkillsSection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl"></div>
             <div className="absolute bottom-4 left-4 text-white">
-              <h4 className="text-lg sm:text-xl font-semibold">Where the Magic Happens</h4>
-              <p className="text-sm opacity-90">Crafting code that transforms ideas into reality</p>
+              <h4 className="text-lg sm:text-xl font-semibold text-code-string">console.log("Where the Magic Happens")</h4>
+              <p className="text-sm opacity-90 text-code-comment">// Crafting code that transforms ideas into reality</p>
             </div>
           </div>
         </div>
