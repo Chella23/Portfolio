@@ -34,9 +34,9 @@ const Header = () => {
               className="group flex items-center space-x-3"
             >
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-code-function to-code-keyword flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                <span className="text-background font-bold text-lg">C</span>
+                <span className="text-white font-bold text-lg">C</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-code-function via-code-keyword to-code-string bg-clip-text text-transparent group-hover:from-code-keyword group-hover:to-code-function transition-all duration-300">
+              <span className="text-xl font-bold text-foreground group-hover:text-code-function transition-all duration-300">
                 Chellappan G
               </span>
             </Link>
