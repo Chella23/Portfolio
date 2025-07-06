@@ -18,82 +18,116 @@ const Header = () => {
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
-  // Hide the name when on home page
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {!isHomePage && (
-          <Link 
-            to="/" 
-            className="text-xl sm:text-2xl font-bold hover:text-primary transition-all duration-300 hover:scale-105 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
-          >
-            Chellappan G
-          </Link>
-        )}
-        
-        {/* Desktop Navigation */}
-        <div className={`hidden md:flex space-x-8 ${isHomePage ? 'mx-auto' : ''}`}>
-          {navItems.map(({ path, label, icon: Icon }) => (
-            <Link
-              key={path}
-              to={path}
-              className={`flex items-center gap-2 hover:text-primary transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-primary/10 relative group ${
-                location.pathname === path ? 'text-primary bg-primary/10' : ''
-              }`}
-            >
-              <Icon className="h-4 w-4" />
-              <span className="font-medium">{label}</span>
-              {location.pathname === path && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"></div>
-              )}
-            </Link>
-          ))}
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="rounded-full hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-          >
-            {theme === 'light' ? 
-              <Moon className="h-5 w-5" /> : 
-              <Sun className="h-5 w-5 text-yellow-500" />
-            }
-          </Button>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-background/90 via-background/95 to-background/90 backdrop-blur-2xl border-b border-gradient-to-r from-transparent via-border to-transparent shadow-2xl">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+      
+      <nav className="relative container mx-auto px-6 py-5">
+        <div className="flex items-center justify-between">
           
-          {/* Mobile Menu Button */}
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="md:hidden rounded-full hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          {/* Logo/Name Section */}
+          {!isHomePage && (
+            <Link 
+              to="/" 
+              className="group flex items-center space-x-3"
+            >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <span className="text-primary-foreground font-bold text-lg">C</span>
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent group-hover:from-primary/80 group-hover:to-primary transition-all duration-300">
+                Chellappan G
+              </span>
+            </Link>
+          )}
+          
+          {/* Navigation Pills - Desktop */}
+          <div className={`hidden md:flex items-center space-x-2 ${isHomePage ? 'mx-auto' : ''}`}>
+            <div className="flex items-center bg-muted/30 backdrop-blur-sm rounded-full p-1 border border-border/50 shadow-lg">
+              {navItems.map(({ path, label, icon: Icon }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 relative group ${
+                    location.pathname === path 
+                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
+                      : 'hover:bg-background/60 hover:text-primary hover:shadow-md'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span className="font-medium text-sm">{label}</span>
+                  
+                  {/* Animated dot indicator */}
+                  {location.pathname === path && (
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex items-center space-x-3">
+            {/* Theme Toggle */}
+            <div className="relative">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-primary/10 hover:border-primary/30 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                {theme === 'light' ? 
+                  <Moon className="h-4 w-4 text-primary" /> : 
+                  <Sun className="h-4 w-4 text-yellow-500" />
+                }
+              </Button>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="md:hidden w-10 h-10 rounded-full bg-muted/50 backdrop-blur-sm border border-border/30 hover:bg-primary/10 hover:border-primary/30 hover:scale-110 transition-all duration-300 shadow-lg"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-4 w-4 text-primary" /> : <Menu className="h-4 w-4 text-primary" />}
+            </Button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Drawer */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 animate-fade-in">
-          <div className="container mx-auto px-4 py-4 space-y-2">
-            {navItems.map(({ path, label, icon: Icon }) => (
-              <Link
-                key={path}
-                to={path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`flex items-center gap-3 hover:text-primary transition-all duration-300 px-4 py-3 rounded-lg hover:bg-primary/10 ${
-                  location.pathname === path ? 'text-primary bg-primary/10' : ''
-                }`}
-              >
-                <Icon className="h-5 w-5" />
-                <span className="font-medium">{label}</span>
-              </Link>
-            ))}
+        <div className="md:hidden bg-background/98 backdrop-blur-2xl border-b border-border/50 shadow-2xl animate-fade-in">
+          <div className="container mx-auto px-6 py-6">
+            <div className="grid grid-cols-1 gap-3">
+              {navItems.map(({ path, label, icon: Icon }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
+                    location.pathname === path 
+                      ? 'bg-primary/10 text-primary border border-primary/20 shadow-lg' 
+                      : 'hover:bg-muted/50 hover:text-primary border border-transparent hover:border-border/50'
+                  }`}
+                >
+                  <div className={`p-2 rounded-lg transition-all duration-300 ${
+                    location.pathname === path 
+                      ? 'bg-primary/20' 
+                      : 'bg-muted/50 group-hover:bg-primary/10'
+                  }`}>
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="font-medium">{label}</span>
+                  
+                  {location.pathname === path && (
+                    <div className="ml-auto w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  )}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
