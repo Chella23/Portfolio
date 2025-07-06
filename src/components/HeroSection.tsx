@@ -17,7 +17,7 @@ const HeroSection = () => {
       {/* Floating code elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 text-code-operator animate-float text-2xl font-mono">&lt;/&gt;</div>
-        <div className="absolute top-40 right-20 text-code-keyword animate-float text-xl font-mono delay-500">{ }</div>
+        <div className="absolute top-40 right-20 text-code-keyword animate-float text-xl font-mono delay-500">{"{ }"}</div>
         <div className="absolute bottom-40 left-20 text-code-function animate-float text-lg font-mono delay-1000">&&</div>
         <div className="absolute bottom-20 right-10 text-code-variable animate-float text-xl font-mono delay-1500">==</div>
       </div>
@@ -58,9 +58,9 @@ const HeroSection = () => {
             
             <p className="text-base sm:text-lg md:text-xl text-code-comment mb-8 max-w-4xl mx-auto leading-relaxed px-4">
               <span className="text-code-comment">// Passionate software developer crafting secure, scalable applications</span><br/>
-              <span className="text-code-keyword">if</span> <span className="text-code-operator">(</span><span className="text-code-variable">innovation</span> <span className="text-code-operator">&&</span> <span className="text-code-variable">security</span><span className="text-code-operator">)</span> <span className="text-code-operator">{</span><br/>
+              <span className="text-code-keyword">if</span> <span className="text-code-operator">(</span><span className="text-code-variable">innovation</span> <span className="text-code-operator">&&</span> <span className="text-code-variable">security</span><span className="text-code-operator">)</span> <span className="text-code-operator">{"{"}</span><br/>
               &nbsp;&nbsp;<span className="text-code-function">buildTheFuture</span><span className="text-code-operator">();</span><br/>
-              <span className="text-code-operator">}</span>
+              <span className="text-code-operator">{"}"}</span>
             </p>
           </div>
           

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Calendar, Award, Target, Zap } from 'lucide-react';
@@ -41,7 +42,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-code-function to-code-keyword bg-clip-text text-transparent">
-            <span className="text-code-keyword">function</span> <span className="text-code-function">aboutMe()</span> <span className="text-code-operator">{</span>
+            <span className="text-code-keyword">function</span> <span className="text-code-function">aboutMe()</span> <span className="text-code-operator">{"{"}</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-code-function to-code-keyword mx-auto rounded-full"></div>
         </div>
@@ -88,10 +89,10 @@ const AboutSection = () => {
                 cybersecurity, and modern tech stacks. */</span>
               </p>
               <p className="hover:text-code-variable transition-colors duration-300">
-                <span className="text-code-keyword">while</span> <span className="text-code-operator">(</span><span className="text-code-variable">learning</span><span className="text-code-operator">)</span> <span className="text-code-operator">{</span><br/>
+                <span className="text-code-keyword">while</span> <span className="text-code-operator">(</span><span className="text-code-variable">learning</span><span className="text-code-operator">)</span> <span className="text-code-operator">{"{"}</span><br/>
                 &nbsp;&nbsp;<span className="text-code-function">expandSkills</span><span className="text-code-operator">(</span><span className="text-code-string">"cybersecurity"</span><span className="text-code-operator">);</span><br/>
                 &nbsp;&nbsp;<span className="text-code-function">solveProblems</span><span className="text-code-operator">();</span><br/>
-                <span className="text-code-operator">}</span>
+                <span className="text-code-operator">{"}"}</span>
               </p>
               <p className="hover:text-code-variable transition-colors duration-300">
                 <span className="text-code-comment">// I believe in the power of technology to transform businesses</span><br/>
@@ -128,7 +129,7 @@ const AboutSection = () => {
               ))}
             </div>
             <div className="mt-6 text-code-operator text-xl">
-              <span>}</span>
+              <span>{"}"}</span>
             </div>
           </div>
         </div>
