@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, ArrowDown, Code, Terminal, GitBranch } from 'lucide-react';
@@ -68,17 +67,17 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in delay-500">
             <Button size="lg" className="text-base sm:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-code-function to-code-keyword hover:from-code-function/90 hover:to-code-keyword/70">
               <Download className="mr-2 h-5 w-5 animate-bounce" />
-              <span className="text-code-string">download(resume)</span>
+              <span className="text-white font-bold">download(resume)</span>
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-base sm:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-code-variable hover:bg-code-variable hover:text-background group"
+              className="text-base sm:text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-code-variable hover:bg-code-variable group"
               asChild
             >
               <Link to="/contact">
                 <GitBranch className="mr-2 h-5 w-5 group-hover:animate-spin" />
-                <span className="text-code-variable group-hover:text-background">connect()</span>
+                <span className="text-code-variable group-hover:text-white font-bold">connect()</span>
               </Link>
             </Button>
           </div>

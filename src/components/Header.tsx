@@ -34,9 +34,9 @@ const Header = () => {
               className="group flex items-center space-x-3"
             >
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-code-function to-code-keyword flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                <span className="text-white font-bold text-lg">C</span>
+                <span className="text-white font-black text-lg">C</span>
               </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-code-function transition-all duration-300">
+              <span className="text-xl font-black text-foreground group-hover:text-code-function transition-all duration-300">
                 Chellappan G
               </span>
             </Link>
@@ -51,12 +51,12 @@ const Header = () => {
                   to={path}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 relative group ${
                     location.pathname === path 
-                      ? 'bg-code-function text-background shadow-lg shadow-code-function/25' 
-                      : 'hover:bg-background/60 hover:text-code-keyword hover:shadow-md text-code-comment'
+                      ? 'bg-code-function text-white shadow-lg shadow-code-function/25 font-bold' 
+                      : 'hover:bg-background/60 hover:text-code-keyword hover:shadow-md text-foreground font-semibold hover:font-bold'
                   }`}
                 >
                   <Icon className="h-4 w-4" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <span className="font-bold text-sm">{label}</span>
                   
                   {/* Animated dot indicator */}
                   {location.pathname === path && (
@@ -109,8 +109,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center gap-4 px-4 py-4 rounded-xl transition-all duration-300 group ${
                     location.pathname === path 
-                      ? 'bg-code-function/10 text-code-function border border-code-function/20 shadow-lg' 
-                      : 'hover:bg-muted/50 hover:text-code-keyword border border-transparent hover:border-border/50 text-code-comment'
+                      ? 'bg-code-function/10 text-code-function border border-code-function/20 shadow-lg font-bold' 
+                      : 'hover:bg-muted/50 hover:text-code-keyword border border-transparent hover:border-border/50 text-foreground font-semibold hover:font-bold'
                   }`}
                 >
                   <div className={`p-2 rounded-lg transition-all duration-300 ${
@@ -120,7 +120,7 @@ const Header = () => {
                   }`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <span className="font-medium">{label}</span>
+                  <span className="font-bold">{label}</span>
                   
                   {location.pathname === path && (
                     <div className="ml-auto w-2 h-2 bg-code-function rounded-full animate-pulse"></div>
