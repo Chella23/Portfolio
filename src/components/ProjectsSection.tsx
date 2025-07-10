@@ -36,20 +36,20 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 relative overflow-hidden">
+    <section id="projects" className="section-padding bg-gradient-to-br from-background via-muted/10 to-background relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-40 h-40 bg-primary/5 rounded-full blur-2xl animate-pulse"></div>
         <div className="absolute bottom-20 left-20 w-60 h-60 bg-primary/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto container-padding relative z-10">
         <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          <h2 className="text-responsive-xl font-black mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full mb-4"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-responsive-base font-medium">
             Showcasing innovative solutions and technical expertise through real-world applications
           </p>
         </div>
@@ -57,15 +57,15 @@ const ProjectsSection = () => {
         {/* Achievement Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12 sm:mb-16">
           {achievements.map((achievement, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-0" style={{animationDelay: `${index * 200}ms`}}>
+            <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in bg-card/80 backdrop-blur-sm border-border/50" style={{animationDelay: `${index * 200}ms`}}>
               <CardContent className="p-6">
                 <div className="flex items-center justify-center mb-3">
                   <div className="p-3 bg-primary/10 rounded-full">
                     {achievement.icon}
                   </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">{achievement.value}</div>
-                <div className="text-sm text-muted-foreground">{achievement.label}</div>
+                <div className="text-2xl sm:text-3xl font-black text-foreground mb-1">{achievement.value}</div>
+                <div className="text-sm text-muted-foreground font-medium">{achievement.label}</div>
               </CardContent>
             </Card>
           ))}
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
         {/* Projects Grid */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in group overflow-hidden bg-gradient-to-br from-card to-card/80 backdrop-blur-sm border-0" style={{animationDelay: `${(index + 3) * 300}ms`}}>
+            <Card key={index} className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in group overflow-hidden bg-card/80 backdrop-blur-sm border-border/50" style={{animationDelay: `${(index + 3) * 300}ms`}}>
               {/* Project Image */}
               <div className="relative overflow-hidden">
                 <img 
@@ -84,23 +84,23 @@ const ProjectsSection = () => {
                 />
                 <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
                 <div className="absolute top-4 left-4">
-                  <div className="p-2 bg-white/90 backdrop-blur-sm rounded-lg">
+                  <div className="p-2 bg-background/90 backdrop-blur-sm rounded-lg border border-border/30">
                     {project.icon}
                   </div>
                 </div>
               </div>
 
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl sm:text-2xl mb-3 group-hover:text-primary transition-colors flex items-center gap-2">
+                <CardTitle className="text-xl sm:text-2xl mb-3 text-foreground group-hover:text-primary transition-colors flex items-center gap-2 font-bold">
                   {project.title}
                 </CardTitle>
-                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{project.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base font-medium">{project.description}</p>
               </CardHeader>
               
               <CardContent className="pt-0">
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold mb-3 flex items-center gap-2">
+                    <h4 className="font-bold mb-3 flex items-center gap-2 text-foreground">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                       Tech Stack
                     </h4>
@@ -109,7 +109,7 @@ const ProjectsSection = () => {
                         <Badge 
                           key={techIndex} 
                           variant="outline" 
-                          className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 bg-muted/30 backdrop-blur-sm"
+                          className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 bg-muted/30 backdrop-blur-sm border-border/50 text-foreground font-medium"
                         >
                           {tech}
                         </Badge>
@@ -118,11 +118,11 @@ const ProjectsSection = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <Button variant="outline" size="sm" className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 flex-1">
+                    <Button variant="outline" size="sm" className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 flex-1 border-border/50 text-foreground font-semibold">
                       <Github className="h-4 w-4" />
                       View Code
                     </Button>
-                    <Button size="sm" className="flex items-center gap-2 hover:scale-105 transition-all duration-300 flex-1 bg-gradient-to-r from-primary to-primary/80">
+                    <Button size="sm" className="flex items-center gap-2 hover:scale-105 transition-all duration-300 flex-1 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
                       <ExternalLink className="h-4 w-4" />
                       Live Demo
                     </Button>
@@ -135,12 +135,12 @@ const ProjectsSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-12 sm:mt-16 animate-fade-in delay-1000">
-          <div className="bg-gradient-to-r from-card to-card/80 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto border">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">Want to see more?</h3>
-            <p className="text-muted-foreground mb-6">
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto border border-border/50">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 text-foreground">Want to see more?</h3>
+            <p className="text-muted-foreground mb-6 font-medium">
               Check out my GitHub for more projects and contributions to the developer community.
             </p>
-            <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300 hover:scale-105">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-105 font-semibold">
               <Github className="mr-2 h-4 w-4" />
               Visit GitHub Profile
             </Button>
