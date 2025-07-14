@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // Export Vite config
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/Portfolio/" : "/", // 👈 auto-switches for local vs hosted
+  base: mode === "production" ? "/Portfolio" : "/", // 👈 auto-switches for local vs hosted
 
   server: {
     host: "::",
